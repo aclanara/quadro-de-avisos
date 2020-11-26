@@ -1,11 +1,61 @@
 <%- include('./partials/head') %> 
 <body>
 
-  <div class="alert alert-primary">
-    <h1>
-      <span class="material-icons">campaign</span>
-      Form de Cadastro</h1>
-  </div>
+  <div class="container">
+    <br> <br>
+
+    <a href="http://"><i class="fas fa-arrow-left"></i> Voltar</a> 
+    <br><br>
+
+    <% if (typeof msg !== 'undefined') { %>
+      <% if (msg.tipo === 'sucesso') { %>
+        <div class="alert alert-success alert-dismissible fade show p-4" role="alert">
+          <strong><i class="fas fa-check-circle"></i> Sucesso!</strong> 
+          <%= msg.corpo %> 
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+       
+      <% } %>
+      <% if (msg.tipo === 'erro') { %>
+        <div class="alert alert-danger alert-dismissible fade show p-4" role="alert">
+          <strong><i class="fas fa-exclamation-triangle"></i> Erro!</strong> <%= msg.corpo %> 
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <% } %>
+    <% } %>
+
+    <div class="card shadow">
+      <div class="card-header bg-purple text-white pl-4 p-4">
+        <h2><i class="fas fa-plus-circle"></i> Novo Aviso</h2>
+      </div>
+        <div class="card-body p-4">
+          <form action="/avisos/novo" method="POST">
+            <div class="form-group">
+              <label for="titulo">Título</label>
+              <input id="titulo" name="titulo" placeholder="Digite o título do aviso" type="text" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="data">Data</label>
+              <input id="data" name="data" type="date" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="Digite o aviso aqui">Mensagem</label>
+              <textarea id="mensagem" name="mensagem" cols="40" rows="5"
+                class="form-control" required
+                placeholder="Digite o aviso completo aqui"></textarea>
+            </div>
+            <div class="form-group text-right">
+              <button name="submit" type="submit" class="btn btn-secondary">Limpar</button>
+              <button name="submit" type="submit" class="btn btn-primary">Cadastrar</button>
+            </div>
+          </form>
+        </div> <!-- card-body -->
+      </div> <!-- card -->
+    </div> <!-- container -->
 
   <%- include('./partials/scripts_import') %> 
 </body>
