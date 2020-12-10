@@ -41,7 +41,7 @@ function salvar(aviso){
  */
 
 function selecionarTodos(){
-  return db.select('*').from('avisos')
+  return db.select('*').from('avisos').orderBy('data', 'ASC')
   .then(avisos => {return avisos})
   .catch(err => {return {tipo:"erro", corpo:"Erro:" + err}})
 } //Fim do selecionarTodos

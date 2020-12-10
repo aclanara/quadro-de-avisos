@@ -8,7 +8,7 @@
   <div class="container">
     <br> <br>
 
-    <a href="http://"><i class="fas fa-arrow-left"></i> Voltar</a> 
+    <a href="#"><i class="fas fa-arrow-left"></i> Voltar</a> 
     <br><br>
 
     <div class="card shadow">
@@ -41,11 +41,12 @@
                 <td> <%= aviso.titulo %> </td>
                 <td> <%= moment(aviso.data).format("DD/MM/YYYY") %> </td>
                 <td>
+                  <a href="avisos/editar/<%= aviso.ID_avisos %>" class="btn btn-primary" style="background-color: #bd24ff; border-color: #bd24ff;">Editar</a>
                   <button class="btn btn-secondary" 
                   data-toggle="modal" 
                   data-target="#excluirModal"
-                  onclick="excluir(event,'<%= aviso.ID_avisos %>')">Excluir</button>
-                  <a href="avisos/editar/<%= aviso.ID_avisos %>" class="btn btn-primary">Editar</a>
+                  onclick="excluir(event,'<%= aviso.ID_avisos %>')"
+                  style="background-color: #F33737; border-color:#F33737;">Excluir</button>
                 </td>
               </tr>
             <% }) %>
