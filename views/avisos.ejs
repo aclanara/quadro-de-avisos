@@ -6,14 +6,14 @@
   <%- include('./partials/navbar') %>
 
   <div class="container">
-    <br> <br>
-
-    <a href="#"><i class="fas fa-arrow-left"></i> Voltar</a> 
+  <br>
+    <!-- Botão Voltar -->
+    <a href="javascript:history.back()" style="color: #8FA998;""> <i class="fas fa-arrow-left"></i> Voltar</a> 
     <br><br>
 
     <div class="card shadow">
       <div class="card-header bg-purple text-white pl-4 p-4">
-        <h2 class="float-left"><i class="fas fa-list"></i> Avisos Cadastrados</h2>
+        <h2 class="float-left"><i class="fas fa-list mr-2"></i> Avisos Cadastrados</h2>
         <a href="/avisos/novo" class="btn btn-lg btn-outline-light float-right">
         <i class="fas fa-plus-circle"></i> Novo Aviso</a>
       </div>
@@ -41,7 +41,7 @@
                 <td> <%= aviso.titulo %> </td>
                 <td> <%= moment(aviso.data).format("DD/MM/YYYY") %> </td>
                 <td>
-                  <a href="avisos/editar/<%= aviso.ID_avisos %>" class="btn btn-primary" style="background-color: #bd24ff; border-color: #bd24ff;">Editar</a>
+                  <a href="avisos/editar/<%= aviso.ID_avisos %>" class="btn btn-primary" style="background-color: #5D4E6D; border-color: #5D4E6D;">Editar</a>
                   <button class="btn btn-secondary" 
                   data-toggle="modal" 
                   data-target="#excluirModal"
@@ -86,9 +86,9 @@
           </table>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color: #F33737; border-color: #F33737;">Não</button>
         <form id="form-excluir" method="GET">        
-          <button type="submit" class="btn btn-primary">Sim</button>
+          <button type="submit" class="btn btn-primary" style="background-color: #8FA998; border-color: #8FA998;">Sim</button>
         </form>
       </div>
     </div>
